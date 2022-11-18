@@ -1,0 +1,74 @@
+/* -------------------------------------------------------------------
+ * # loading
+ * # onemanager
+ * =================================================================== */
+
+/* # loading */
+.ctn-pre {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	cursor: default;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: 100%;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 9000;
+	background-color: #000;
+}
+
+.ctn-pre .a-pre {
+	z-index: 1000;
+}
+
+.loading {
+	--color: #F5F9FF;
+	--duration: 2000ms;
+	font-family: Roboto, Arial;
+	font-size: 30px;
+	position: relative;
+	white-space: nowrap;
+	user-select: none;
+	color: var(--color);
+}
+
+.loading lspan {
+	--x: 0;
+	--y: 0;
+	--move-y: 0;
+	--move-y-s: 0;
+	--delay: 0ms;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1px;
+	text-indent: calc(var(--x) * -1);
+	overflow: hidden;
+	transform: translate(var(--x), var(--y));
+}
+
+.loading.start ldiv {
+	opacity: 0;
+}
+
+.loading.start lspan {
+	animation: move var(--duration) ease-in-out var(--delay);
+}
+
+@keyframes move {
+	30% {
+		transform: translate(var(--x), var(--move-y));
+	}
+
+	82% {
+		transform: translate(var(--x), var(--move-y-s));
+	}
+}
